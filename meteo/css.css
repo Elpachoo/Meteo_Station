@@ -1,0 +1,39 @@
+header {
+	margin-top: 30px;
+	font-size: 40px;
+	font-family:Arial;
+	color:rgb(238,28,37);
+	text-align: center;
+}
+
+#bloc_1, #bloc_2, #bloc_3, #bloc_4, #bloc_5  {
+	display: inline-block;
+	position: relative;
+	float: left;
+	margin-left: 85px;
+	margin-top: 100px;
+}
+
+#bloc_5 {
+	margin-top: 220px;
+}
+
+img {
+	width: 180px;
+	height: 120px;
+	display:inline;
+}
+
+h1 {
+	font-size: 40px;
+	font-family:Arial;
+	color:rgb(238,28,37);
+	text-align: center;
+}
+
+h2,h3,h4,h5 {
+	font-size: 22px;
+	font-family:Arial;
+	color:rgb(31,96,143);
+	text-align: center;
+}
