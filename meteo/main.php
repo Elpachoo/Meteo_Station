@@ -20,7 +20,7 @@
     $lenData = strlen($data['data']);
 
     $i = 0;
-    while ($i < 10){
+    while ($i < $lenDataReceive){
         $data = (array)$obj->{'data'}[$i];
         $arg = $data['data'];
         //print_r($arg);
