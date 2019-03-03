@@ -74,7 +74,7 @@ Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire 
 
 #### Capture de la page web
 
-[Page web]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_site.png
+![Page web]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_site.png
 
 #### Capture des graphiques de température et d'humidité
 
@@ -110,8 +110,8 @@ Pour afficher les graphiques, on les enregistre au préalable en tant qu'image a
 </html>
 ```
 
-[Graphique de la température]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_graphe_temperature.png
-[Graphique de l'humidité]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_graphe_humidite.png
+![Graphique de la température]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_graphe_temperature.png
+![Graphique de l'humidité]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_graphe_humidite.png
 
 Pour ce qui est de l'affichage des données météo des villes, comme dit précédemment, nous passons par l'API d'OpenWeather. Pour ce faire, nous utilisons donc un script **.json** intégré dans notre page web afin d'afficher les données.
 
