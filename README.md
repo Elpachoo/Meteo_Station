@@ -74,7 +74,7 @@ Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire 
 
 #### Capture de la page web
 
-![Page web](https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_site.p)
+![Page web](https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_site.png)
 
 #### Capture des graphiques de température et d'humidité
 
