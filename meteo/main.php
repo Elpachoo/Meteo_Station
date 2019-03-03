@@ -185,7 +185,7 @@
             <div id="bloc_5">
                 <h1> DHT </h1>
                 <h2>T° : <?php echo $dht11["temperature"][0]; ?> °C</h2>
-                <h3>Humidity : <?php echo $dht11["temperature"][0]; ?> %</h3>
+                <h3>Humidity : <?php echo $dht11["humidity"][0]; ?> %</h3>
                 <h4><a href="temperature.html">graph temperature</a></h4>
                 <h4><a href="humidity.html">graph humidity</a></h4>
             </div>
