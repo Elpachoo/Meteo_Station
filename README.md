@@ -1,4 +1,4 @@
-# Projet d'IoT - ISEN Lille : Création d'une station météo
+﻿# Projet d'IoT - ISEN Lille : Création d'une station météo
 
 ### Par : Barbé Gatien, Bourdeau Martin, Dumser Clément et Ghys Robin
 =====================================================================
@@ -12,23 +12,24 @@ Dans le cadre de notre formation en **IoT**, nous avons participé à un projet 
 Afin de concevoir cette station météo, nous avons utilisé plusieurs technologies différentes.
 Comme dit dans la présentation, nous avions une carte arduino et un module SigFox mis à disposition afin de pouvoir envoyer les températures ainsi que l'humidité relevées sur les serveurs SigFox.
 
-L'intérêt d'utiliser SigFox réside dans le fait que nos données sont envoyées sur des serveurs. Ainsi, elles sont stockées et formatées selon un format prédéfinies. Nous n'avons ensuite qu'à appelé le fichier **.json** généré pour lire les données obtenues par le capteur.
+L'intérêt d'utiliser SigFox réside dans le fait que nos données sont envoyées sur des serveurs. Ainsi, elles sont stockées et formatées selon un format prédéfini. Nous n'avons ensuite qu'à faire une requête Http pour récupérer les données sous un format **.json** afin de lire les données obtenues par le capteur.
 
-Afin d'afficher ces données, nous avons créé une page web. En vous connectant dessus, vous pouvez remarquer qu'il n'y a pas seulement les données récupérées par le DHT qui apparaissent.
-En effet, les données sur les 4 autres villes sont obtenues via **l'API OpenWeather**. OpenWeather est un site ouvert à tous permettant de récupérer des données météorologiques en fonction de leur classe. Nous avons donc décidé d'afficher le temps, la température, l'humidité, et la pression.
+Afin d'afficher ces données, nous avons créé une page web. En vous connectant dessus, vous pouvez remarquer qu'il n'y a pas seulement les données récupérées par le capteur DHT11 qui apparaissent.
+En effet, les données sur les 4 autres villes sont obtenues via **l'API OpenWeather**. OpenWeather est un site ouvert à tous permettant de récupérer des données météorologiques. Nous avons donc décidé d'afficher le temps, la température, l'humidité, et la pression atmosphérique.
 
 ### Page Web :
 
 C'est sur cette page que vous allez pouvoir visualiser nos relevés météo. 
-On initialise d'abord la connexion à SigFox. Pour ce faire on a automatisé la connexion afin que l'utilisateur obtienne instantanément les relevés du **capteur DHT**.
+On initialise d'abord la connexion à API SigFox.
 
-Lorsque la connexion est faite, un fichier au format *.json* est reçu. On va ensuite transformer la partie **data** en array (par une opération de **casting**). On sélectionne ensuite l'élément **data** dans ce nouveau tableau. Cet élément correspond aux données météo envoyées par le module SigFox.
+Lorsque la connexion est établie, un fichier au format *.json* est reçu. On va ensuite transformer la partie **data** en array (par une opération de **casting**). On sélectionne ensuite l'élément **data** dans ce nouveau tableau. Cet élément correspond aux données météo envoyées par le module SigFox.
 
 En tout, on récupère 100 valeurs depuis l'API SigFox que l'on va ensuite afficher dans un **graphique**. 
 
 ![API SigFox](https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_API_SigFox.png)
 
-Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire si une température est positive ou négative. Nous avons donc transformé les signes **-** et **+** en chiffre. Si **arg[0] = 1**, cela signifie que la température est une température négative. En revanche, si **arg[0] = 0**, la température est positive.
+Afin de déterminer si une température est positive ou négative, nous avons transformé les signes **+** et **-** en **0** et **1**.
+Donc si le premier élément de la chaîne de caractères est un '1' (Si **arg[0] = 1**), cela signifie que la température est négative. En revanche, si le premier élément de la chaîne de caractères est un '0' (si **arg[0] = 0**), la température est positive.
 
 ```php
 <?php
@@ -40,7 +41,7 @@ Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire 
 
 
 
-    // information pour recupere les donnes sur la page sigfox
+    // informations de login et password pour recupérer les données via l'API de Sigfox
     $username = "5954e57250057463d741a09e";
     $password = "cade1bf9b1c3f046dc0b862c364f216f";
 
@@ -58,10 +59,12 @@ Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire 
         $arg = $data['data'];
         //print_r($arg);
         if(strlen($arg)==6){
+	    // Si c'est une température négative
             if($arg[0]==1){
                 array_push($dht11["temperature"],-floatval($arg[1].$arg[2].".".$arg[3]));
                 array_push($dht11["humidity"],intval($arg[4].$arg[5]));
             }
+	    // Si c'est une température positive
             else if($arg[0]==0){
                 array_push($dht11["temperature"],floatval($arg[1].$arg[2].".".$arg[3]));
                 array_push($dht11["humidity"],intval($arg[4].$arg[5]));
@@ -165,9 +168,9 @@ L'avantage ici est que la réponse obtenue est au format **.json**. Et étant do
 
 Afin de pouvoir utiliser notre station météo, vous devez au préalable vous munir d'un module SigFox, d'un ESP8266. 
 
-**!!! ATTENTION !!!** Veuillez vous assurer que le module SigFox que vous allez utiliser correspond bien à celui qui est enregistré sur SigFox et à partir duquel nous faisons l'acquisition de donnée.
+**!!! ATTENTION !!!** Veuillez vous assurer que le module SigFox que vous allez utiliser correspond bien à celui qui est enregistré sur SigFox et à partir duquel nous faisons l'acquisition de données.
 
-Pour faire fonctionner la station météo, vous allez avoir besoin du script arduino *Weather_IoT*que vous allez téléverser dans l'ESP.
+Pour faire fonctionner la station météo, vous allez avoir besoin du script arduino *Weather_IoT* que vous allez téléverser dans l'ESP.
 
 Une fois cela effectué, il ne vous reste qu'à ouvrir la page web. Pour se faire, enregistrez le dossier *meteo* dans votre dossier *www* dans **wamp**. Ouvrez ensuite une page internet et connectez-vous à votre **localhost**. Allez dans vos dossiers, ouvrez *meteo* et lancez le fichier *main.php*.
 
