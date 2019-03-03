@@ -70,7 +70,7 @@ En tout, on récupère 100 valeurs depuis l'API SigFox que l'on va ensuite affic
 
 #### Capture de la page web
 
-[Page web]:(capture_site.png)
+[Page web]:(Photo_Rapport/capture_site.png)
 
 #### Capture des graphiques de température et d'humidité
 
@@ -106,8 +106,8 @@ Pour afficher les graphiques, on les enregistre au préalable en tant qu'image a
 </html>
 ```
 
-[Graphique de la température]:(capture_graphique_temperature)
-[Graphique de l'humidité]:(capture_graphique_humidite)
+[Graphique de la température]:(Photo_Rapport/capture_graphique_temperature)
+[Graphique de l'humidité]:(Photo_Rapportcapture_graphique_humidite)
 
 Pour ce qui est de l'affichage des données météo des villes, comme dit précédemment, nous passons par l'API d'OpenWeather. Pour ce faire, nous utilisons donc un script **.json** intégré dans notre page web afin d'afficher les données.
 
@@ -157,7 +157,7 @@ L'avantage ici est que la réponse obtenue est au format **.json**. Et étant do
     </script>
 ```
 
-## Installation
+## Installation et utilisation
 
 Afin de pouvoir utiliser notre station météo, vous devez au préalable vous munir d'un module SigFox, d'un ESP8266. 
 
