@@ -24,7 +24,11 @@ On initialise d'abord la connexion à SigFox. Pour ce faire on a automatisé la 
 
 Lorsque la connexion est faite, un fichier au format *.json* est reçu. On va ensuite transformer la partie **data** en array (par une opération de **casting**). On sélectionne ensuite l'élément **data** dans ce nouveau tableau. Cet élément correspond aux données météo envoyées par le module SigFox.
 
-En tout, on récupère 100 valeurs depuis l'API SigFox que l'on va ensuite afficher dans un **graphique**. Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire si une température est positive ou négative. Nous avons donc transformé les signes **-** et **+** en chiffre. Si **arg[0] = 1**, cela signifie que la température est une température négative. En revanche, si **arg[0] = 0**, la température est positive.
+En tout, on récupère 100 valeurs depuis l'API SigFox que l'on va ensuite afficher dans un **graphique**. 
+
+[API SigFox]: Photo_Rapport/capture_API_SigFox.png
+
+Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire si une température est positive ou négative. Nous avons donc transformé les signes **-** et **+** en chiffre. Si **arg[0] = 1**, cela signifie que la température est une température négative. En revanche, si **arg[0] = 0**, la température est positive.
 
 ```php
 <?php
@@ -70,7 +74,7 @@ En tout, on récupère 100 valeurs depuis l'API SigFox que l'on va ensuite affic
 
 #### Capture de la page web
 
-[Page web]:(Photo_Rapport/capture_site.png)
+[Page web]: Photo_Rapport/capture_site.png
 
 #### Capture des graphiques de température et d'humidité
 
@@ -106,8 +110,8 @@ Pour afficher les graphiques, on les enregistre au préalable en tant qu'image a
 </html>
 ```
 
-[Graphique de la température]:(Photo_Rapport/capture_graphique_temperature)
-[Graphique de l'humidité]:(Photo_Rapportcapture_graphique_humidite)
+[Graphique de la température]: Photo_Rapport/capture_graphique_temperature
+[Graphique de l'humidité]: Photo_Rapport/capture_graphique_humidite
 
 Pour ce qui est de l'affichage des données météo des villes, comme dit précédemment, nous passons par l'API d'OpenWeather. Pour ce faire, nous utilisons donc un script **.json** intégré dans notre page web afin d'afficher les données.
 
