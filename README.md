@@ -26,7 +26,7 @@ Lorsque la connexion est faite, un fichier au format *.json* est reçu. On va en
 
 En tout, on récupère 100 valeurs depuis l'API SigFox que l'on va ensuite afficher dans un **graphique**. 
 
-[API SigFox]: Photo_Rapport/capture_API_SigFox.png
+[API SigFox]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_API_SigFox.png
 
 Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire si une température est positive ou négative. Nous avons donc transformé les signes **-** et **+** en chiffre. Si **arg[0] = 1**, cela signifie que la température est une température négative. En revanche, si **arg[0] = 0**, la température est positive.
 
@@ -74,7 +74,7 @@ Cependant, lors de l'envoi de ces données, le module n'est pas capable de dire 
 
 #### Capture de la page web
 
-[Page web]: Photo_Rapport/capture_site.png
+[Page web]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_site.png
 
 #### Capture des graphiques de température et d'humidité
 
@@ -110,8 +110,8 @@ Pour afficher les graphiques, on les enregistre au préalable en tant qu'image a
 </html>
 ```
 
-[Graphique de la température]: Photo_Rapport/capture_graphique_temperature
-[Graphique de l'humidité]: Photo_Rapport/capture_graphique_humidite
+[Graphique de la température]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_graphe_temperature.png
+[Graphique de l'humidité]: https://github.com/Elpachoo/Meteo_Station/blob/Projet_V1/Photo_Rapport/capture_graphe_humidite.png
 
 Pour ce qui est de l'affichage des données météo des villes, comme dit précédemment, nous passons par l'API d'OpenWeather. Pour ce faire, nous utilisons donc un script **.json** intégré dans notre page web afin d'afficher les données.
 
